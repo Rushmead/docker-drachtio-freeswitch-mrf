@@ -23,6 +23,9 @@ RUN echo "AWS_SDK_CPP_VERSION=$AWS_SDK_CPP_VERSION"
 RUN echo "FREESWITCH_MODULES_VERSION=$FREESWITCH_MODULES_VERSION"
 RUN echo "FREESWITCH_VERSION=$FREESWITCH_VERSION"
 
+ENV USE_AVX=0
+ENV USE_AVX2=0
+
 RUN for i in $(seq 1 8); do mkdir -p "/usr/share/man/man${i}"; done \
     && apt-get update && apt-get -y --quiet --allow-remove-essential upgrade \
     && apt-get install -y --quiet --no-install-recommends \
